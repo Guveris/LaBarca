@@ -48,7 +48,7 @@ ${JSON.stringify(menu, null, 2)}
 - Panuozzo mata a fome de uma pessoa — indique para quem está com fome
 - Experiência exclusiva aos domingos: Valor R$189 (para compartilhar em 2)
 Essa vai ser a experiência pro cliente entre o LaBarca e a Tarantino e precisa ser vendida com esmero
-Preciso que explique ao cliente os pratos e a harmonização com as cervejas na ordem do texto começando pelas ostras
+Preciso que explique ao cliente os pratos e a harmonização com as cervejas na ordem do texto começando pelas ostras. Nesta experiencia as cervejas já vem junto, são os melhores pratos do La Barca com as melhores cervejas da Tarantino.
 OSTRAS FRESCAS (4 unidades)
 Com vinagrete de goiaba “fermentada”,
 gengibre fresco e toque de pimenta.

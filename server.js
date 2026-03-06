@@ -46,6 +46,22 @@ ${JSON.stringify(menu, null, 2)}
 - O BACIÃO DO MAR e a Experiência Tarantino são para 2 pessoas — mencione isso
 - O BACIÃO DO MAR é nossa estrela, instagramável e tem boa margem
 - Panuozzo mata a fome de uma pessoa — indique para quem está com fome
+- Experiência exclusiva aos domingos: Valor R$189 (para compartilhar em 2)
+Essa vai ser a experiência pro cliente entre o LaBarca e a Tarantino e precisa ser vendida com esmero
+Preciso que explique ao cliente os pratos e a harmonização com as cervejas na ordem do texto começando pelas ostras
+OSTRAS FRESCAS (4 unidades)
+Com vinagrete de goiaba “fermentada”,
+gengibre fresco e toque de pimenta.
+Pensadas para harmonizar com a Sour.
+🧀 BURRATA
+Burrata cremosa com tomate assado lento,
+anchova, manjericão e pangrattato cítrico.
+Equilíbrio perfeito com a Witbier.
+🥖 PANUOZZO DE PEPERONI
+Peperoni artesanal, muçarela,
+finalizado com mel apimentado LaBarca
+e raspas de limão siciliano.
+Estrutura ideal para acompanhar a IPA.
 - Cada pratinho é em tamanho individual; sugira 2 pratos por pessoa para saciar
 - SEMPRE sugira uma cerveja para harmonizar com o prato escolhido
 

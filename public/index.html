@@ -15,18 +15,18 @@
     --bg:         #f5f0e8;
     --surface:    #faf7f2;
     --surface2:   #ede8dd;
-    --border:     rgba(90, 60, 20, 0.10);
-    --navy:       #1a2744;
-    --navy-dim:   rgba(26, 39, 68, 0.07);
-    --terracotta: #b85c38;
-    --sand:       #c8a96e;
-    --sand-dim:   rgba(200, 169, 110, 0.15);
+    --border:     rgba(90, 30, 20, 0.10);
+    --navy:       #c0272d;
+    --navy-dim:   rgba(192, 39, 45, 0.07);
+    --terracotta: #9b1f24;
+    --sand:       #f5e6e0;
+    --sand-dim:   rgba(245, 230, 224, 0.15);
     --text:       #1e1a14;
     --muted:      #8a7d6a;
-    --user-bg:    #1a2744;
-    --user-text:  #e8e2d6;
+    --user-bg:    #c0272d;
+    --user-text:  #fdf3f2;
     --bot-bg:     #ffffff;
-    --shadow:     0 2px 16px rgba(26,39,68,0.08);
+    --shadow:     0 2px 16px rgba(192,39,45,0.08);
   }
 
   html, body {
@@ -67,7 +67,7 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 3px;
-    background: linear-gradient(90deg, var(--navy), var(--terracotta), var(--sand), var(--terracotta), var(--navy));
+    background: linear-gradient(90deg, #c0272d, #e85d5d, #f5a09a, #e85d5d, #c0272d);
     z-index: 10;
   }
 
@@ -99,9 +99,9 @@
     height: 48px;
     border-radius: 50%;
     overflow: hidden;
-    border: 2px solid rgba(200,169,110,0.4);
+    border: 2px solid rgba(255,255,255,0.35);
     flex-shrink: 0;
-    background: rgba(255,255,255,0.05);
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -121,20 +121,20 @@
     font-weight: 300;
     font-size: 22px;
     letter-spacing: 0.12em;
-    color: #f0ead8;
+    color: #fff;
     line-height: 1;
     font-style: italic;
   }
 
   .header-title span {
-    color: var(--sand);
+    color: #ffd6d4;
     font-style: normal;
     font-weight: 600;
   }
 
   .header-sub {
     font-size: 10px;
-    color: rgba(200,169,110,0.7);
+    color: rgba(255,220,218,0.7);
     letter-spacing: 0.2em;
     text-transform: uppercase;
     margin-top: 5px;
@@ -229,8 +229,8 @@
 
   .avatar.bot {
     background: var(--navy);
-    border: 1.5px solid rgba(200,169,110,0.3);
-    color: var(--sand);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    color: #fff;
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
     font-weight: 600;
@@ -400,7 +400,7 @@
     box-shadow: 0 2px 8px rgba(26,39,68,0.25);
   }
 
-  #send-btn:hover  { background: #243561; }
+  #send-btn:hover  { background: #a01f24; }
   #send-btn:active { transform: scale(0.94); }
   #send-btn svg { width: 18px; height: 18px; }
 
@@ -422,7 +422,7 @@
 
   <div class="header">
     <div class="header-logo-wrap">
-      <img src="logo.png" alt="Logo LaBarca" onerror="this.style.display='none'; this.parentElement.textContent='⚓'">
+      <img src="logo.jpg" alt="Logo LaBarca" onerror="this.style.display='none'; this.parentElement.textContent='⚓'">
     </div>
     <div class="header-text">
       <div class="header-title"><span>La</span>Barca</div>

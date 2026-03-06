@@ -1,0 +1,204 @@
+{
+  "nome_restaurante": "LaBarca",
+  "categorias": [
+    {
+      "nome": "Ostras",
+      "itens": [
+        {
+          "nome": "Ostras Frescas",
+          "descricao": "A pureza do mar em três unidades, servidas com limão para realçar o frescor natural.",
+          "preco": 27
+        },
+        {
+          "nome": "Ostras Gratinadas",
+          "descricao": "Ostras selecionadas cobertas com um creme de queijo levemente dourado ao forno.",
+          "preco": 34
+        }
+      ]
+    },
+    {
+      "nome": "Al Mare",
+      "itens": [
+        {
+          "nome": "Mexilhões – Impepata di Cozze",
+          "descricao": "Clássico napolitano: mexilhões cozidos no azeite, manteiga, pimenta-do-reino e muita salsinha. Acompanha uma fatia de focaccia para chuchar no molho!",
+          "preco": 48
+        },
+        {
+          "nome": "Vôngoles no Vino & Burro",
+          "descricao": "250g de vôngoles preparados no vinho branco, manteiga e ervas. Servido com fatia de focaccia.",
+          "preco": 38
+        }
+      ]
+    },
+    {
+      "nome": "Do Balcão",
+      "itens": [
+        {
+          "nome": "Antepastos da Vitrine",
+          "descricao": "Seleção de antepastos italianos vendidos por peso. Tomate seco feito na casa, antepasto de abobrinha, azeitonas chilenas marinadas, língua defumada, calabresa curada picante, manjuba escabeche, alcachofras... Quantidades limitadas e sujeito a disponibilidade.",
+          "preco": 17.5,
+          "unidade": "100g"
+        }
+      ]
+    },
+    {
+      "nome": "Burratas",
+      "itens": [
+        {
+          "nome": "Burrata Artesanal",
+          "descricao": "Burrata fresca (100g) servida com azeite, pimenta do reino, flor de sal e folhinhas de manjericão. Acompanha fatia de focaccia.",
+          "preco": 39
+        },
+        {
+          "nome": "Burrata & Pizza",
+          "descricao": "Pizza de fermentação natural com molho de tomates italianos, burrata fresca (100g) servida com pesto.",
+          "preco": 45
+        }
+      ]
+    },
+    {
+      "nome": "Panuozzos",
+      "itens": [
+        {
+          "nome": "Panuozzo de Polvo",
+          "descricao": "Nossa estrela da casa! Massa de pizza artesanal (fermentada por 48hrs) em forma de sanduíche recheado com meio polvinho cozido lentamente, burrata artesanal, pesto de ervas e rúcula.",
+          "preco": 65
+        },
+        {
+          "nome": "Panuozzo de Mortadela",
+          "descricao": "Uma montanha de mortadela italiana fatiada finamente, acompanhada de queijo derretido e raspas de limão.",
+          "preco": 36
+        },
+        {
+          "nome": "Panuozzo de Escarola",
+          "descricao": "Escarola fresca refogada no alho e azeite, combinada com a cremosidade da mussarela derretida em nossa massa artesanal.",
+          "preco": 38
+        },
+        {
+          "nome": "Panuozzo de Pepperoni",
+          "descricao": "Massa de pizza artesanal (fermentada por 48hrs) em forma de sanduíche recheada com pepperoni e mussarela.",
+          "preco": 38
+        }
+      ]
+    },
+    {
+      "nome": "Dolce",
+      "itens": [
+        {
+          "nome": "Cannoli Siciliano",
+          "descricao": "Veramente italiano! Massa frita recheada com creme de ricota, açúcar e raspas de laranja, gotas de chocolate e pistache moído.",
+          "preco": 15
+        }
+      ]
+    },
+    {
+      "nome": "Cervejas",
+      "itens": [
+        {
+          "nome": "Manga IPA",
+          "descricao": "7.0% | 60 IBU | Alto amargor. IPA clássica, mais seca e amarga, com aroma extremamente frutado de manga. Lúpulos El Dorado e Mosaic.",
+          "preco": 35
+        },
+        {
+          "nome": "Witbier",
+          "descricao": "4.8% | 15 IBU | Baixo amargor. Cerveja de trigo leve e refrescante, com especiarias e casca de limão siciliano. Corpo macio e final moderadamente seco.",
+          "preco": 24
+        },
+        {
+          "nome": "Sour Goiaba, Amora e Cumaru",
+          "descricao": "4.4% | 5 IBU | Sem amargor. Cor rosa claro, aroma de goiaba, perfume de cumaru. Equilibra dulçor e acidez lática. Leve e com final seco.",
+          "preco": 38
+        },
+        {
+          "nome": "Chopp Lager",
+          "descricao": "Leve, limpa a gordura e fácil de beber.",
+          "preco_300": 12,
+          "preco_500": 18
+        },
+        {
+          "nome": "Chopp IPA",
+          "descricao": "Amarga e cítrica; segura pratos com gordura e fritura.",
+          "preco_300": 16,
+          "preco_500": 24
+        }
+      ]
+    },
+    {
+      "nome": "Vinhos",
+      "itens": [
+        {
+          "nome": "Vinho SUSPEITO Branco",
+          "descricao": "Chardonnay | 12,5% | Perfil aromático.",
+          "preco": 89
+        },
+        {
+          "nome": "Vinho SUSPEITO Rosé",
+          "descricao": "Merlot | 11,5% | Acidez média.",
+          "preco": 89
+        },
+        {
+          "nome": "Vinho em Taça",
+          "descricao": "Projeto Tão Longe Tão Perto – Rio Grande do Sul/BR. 150ml. Branco Chardonnay ou tinto Merlot.",
+          "preco": 18,
+          "obs": "A partir de"
+        }
+      ]
+    },
+    {
+      "nome": "Drinks",
+      "itens": [
+        {
+          "nome": "Negroni",
+          "descricao": "Gin, Campari e vermute. Servido no copo baixo com gelo quadrado e fatia de laranja.",
+          "preco": 35
+        },
+        {
+          "nome": "Americano",
+          "descricao": "Campari, vermute, água com gás.",
+          "preco": 28
+        },
+        {
+          "nome": "Aperol Spritz – Jarra 1L (5 taças)",
+          "descricao": "Aperol, espumante, água com gás e rodelas de laranja.",
+          "preco": 125
+        },
+        {
+          "nome": "Negroni Sbagliato – Jarra 1L (5 taças)",
+          "descricao": "Espumante, vermute e campari com rodelas de laranja.",
+          "preco": 138
+        },
+        {
+          "nome": "Hugo Spritz – Jarra 1L (5 taças)",
+          "descricao": "Espumante, gin, xarope de flor de sabugueiro e água com gás com fatias de limão e manjericão.",
+          "preco": 142
+        }
+      ]
+    },
+    {
+      "nome": "Sem Álcool",
+      "itens": [
+        {
+          "nome": "Água Tônica",
+          "descricao": "350ml",
+          "preco": 8
+        },
+        {
+          "nome": "Coca Cola / Coca Zero",
+          "descricao": "350ml",
+          "preco": 8
+        },
+        {
+          "nome": "Soda Italiana",
+          "descricao": "Água com gás & xarope de frutas ou especiarias.",
+          "preco": 15
+        },
+        {
+          "nome": "Ginger Soda",
+          "descricao": "Xarope de gengibre feito na casa, limão, folhas de hortelã e água com gás.",
+          "preco": 16
+        }
+      ]
+    }
+  ]
+}

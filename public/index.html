@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>LaBarca | Atendimento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:         #f5f0e8;
+    --surface:    #faf7f2;
+    --surface2:   #ede8dd;
+    --border:     rgba(90, 60, 20, 0.10);
+    --navy:       #1a2744;
+    --navy-dim:   rgba(26, 39, 68, 0.07);
+    --terracotta: #b85c38;
+    --sand:       #c8a96e;
+    --sand-dim:   rgba(200, 169, 110, 0.15);
+    --text:       #1e1a14;
+    --muted:      #8a7d6a;
+    --user-bg:    #1a2744;
+    --user-text:  #e8e2d6;
+    --bot-bg:     #ffffff;
+    --shadow:     0 2px 16px rgba(26,39,68,0.08);
+  }
+
+  html, body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text);
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Linen texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 580px;
+    height: 100dvh;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 60px rgba(26,39,68,0.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Wave decoration at top */
+  .wave-top {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--navy), var(--terracotta), var(--sand), var(--terracotta), var(--navy));
+    z-index: 10;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle wave pattern in header */
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 20px;
+    background: var(--surface);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .header-logo-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(200,169,110,0.4);
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .header-logo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .header-text { flex: 1; position: relative; z-index: 1; }
+
+  .header-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    font-size: 22px;
+    letter-spacing: 0.12em;
+    color: #f0ead8;
+    line-height: 1;
+    font-style: italic;
+  }
+
+  .header-title span {
+    color: var(--sand);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .header-sub {
+    font-size: 10px;
+    color: rgba(200,169,110,0.7);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  .status-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .status-dot {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    box-shadow: 0 0 8px #4ade80;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+  }
+
+  /* ─── FLAVOR STRIP ─── */
+  .flavor-strip {
+    padding: 7px 24px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .flavor-strip span {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    opacity: 0.8;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+  }
+
+  .flavor-strip .sep { color: var(--terracotta); opacity: 0.5; }
+
+  /* ─── CHAT AREA ─── */
+  #chat {
+    flex: 1;
+    padding: 20px 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    scroll-behavior: smooth;
+  }
+
+  #chat::-webkit-scrollbar { width: 3px; }
+  #chat::-webkit-scrollbar-track { background: transparent; }
+  #chat::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+
+  .message-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    animation: fadeUp 0.3s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .message-row.user { flex-direction: row-reverse; }
+
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    align-self: flex-end;
+    margin-bottom: 2px;
+  }
+
+  .avatar.bot {
+    background: var(--navy);
+    border: 1.5px solid rgba(200,169,110,0.3);
+    color: var(--sand);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .avatar.user-av {
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .message {
+    max-width: 78%;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 1.7;
+    white-space: pre-line;
+    position: relative;
+  }
+
+  /* Assistant bubble */
+  .message.assistant {
+    background: var(--bot-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 4px 16px 16px 16px;
+    box-shadow: var(--shadow);
+  }
+
+  /* User bubble */
+  .message.user {
+    background: var(--user-bg);
+    color: var(--user-text);
+    border-radius: 16px 4px 16px 16px;
+    box-shadow: 0 2px 12px rgba(26,39,68,0.2);
+  }
+
+  /* Bold rendering */
+  .message strong { color: var(--terracotta); font-weight: 500; }
+  .message.user strong { color: var(--sand); }
+
+  /* Italic in assistant */
+  .message em {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+  }
+
+  /* ─── TYPING ─── */
+  .typing-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: fadeUp 0.2s ease both;
+  }
+
+  .typing-bubble {
+    background: var(--bot-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px 16px 16px 16px;
+    padding: 12px 18px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    box-shadow: var(--shadow);
+  }
+
+  .dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--navy);
+    opacity: 0.4;
+    animation: blink 1.2s ease-in-out infinite;
+  }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes blink {
+    0%, 100% { opacity: 0.2; transform: scale(0.85); }
+    50%       { opacity: 0.8; transform: scale(1.1); }
+  }
+
+  /* ─── QUICK HINTS ─── */
+  .hints {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px 10px;
+    overflow-x: auto;
+    flex-shrink: 0;
+  }
+
+  .hints::-webkit-scrollbar { display: none; }
+
+  .hint {
+    white-space: nowrap;
+    padding: 7px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    box-shadow: 0 1px 4px rgba(26,39,68,0.05);
+  }
+
+  .hint:hover {
+    color: var(--navy);
+    border-color: rgba(26,39,68,0.25);
+    background: var(--navy-dim);
+  }
+
+  /* ─── INPUT AREA ─── */
+  .input-area {
+    padding: 12px 16px 16px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .input-wrap {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  #input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    outline: none;
+    font-size: 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    transition: border-color 0.2s, background 0.2s;
+    box-shadow: inset 0 1px 4px rgba(26,39,68,0.04);
+  }
+
+  #input::placeholder { color: var(--muted); }
+
+  #input:focus {
+    border-color: rgba(26,39,68,0.3);
+    background: #fff;
+  }
+
+  #send-btn {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    border: none;
+    background: var(--navy);
+    color: var(--sand);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.1s;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(26,39,68,0.25);
+  }
+
+  #send-btn:hover  { background: #243561; }
+  #send-btn:active { transform: scale(0.94); }
+  #send-btn svg { width: 18px; height: 18px; }
+
+  /* ─── OSTRA DECORATION ─── */
+  .ostra-deco {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    opacity: 0.5;
+    letter-spacing: 0.12em;
+    margin: 4px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="wave-top"></div>
+
+  <div class="header">
+    <div class="header-logo-wrap">
+      <img src="logo.png" alt="Logo LaBarca" onerror="this.style.display='none'; this.parentElement.textContent='⚓'">
+    </div>
+    <div class="header-text">
+      <div class="header-title"><span>La</span>Barca</div>
+      <div class="header-sub">Boteco Italiano · Ostras & Frutos do Mar</div>
+    </div>
+    <div class="status-wrap">
+      <div class="status-dot" title="Online"></div>
+    </div>
+  </div>
+
+  <div class="flavor-strip">
+    <span>🦪 OSTRAS</span>
+    <span class="sep">·</span>
+    <span>🐙 POLVO</span>
+    <span class="sep">·</span>
+    <span>🍺 CERVEJAS ARTESANAIS</span>
+    <span class="sep">·</span>
+    <span>🇮🇹 PANUOZZO</span>
+    <span class="sep">·</span>
+    <span>🧀 BURRATA</span>
+    <span class="sep">·</span>
+    <span>🦪 OSTRAS</span>
+  </div>
+
+  <div id="chat"></div>
+
+  <div class="hints" id="hints">
+    <button class="hint" onclick="sendQuick('1')">🍽 Mais pedidos</button>
+    <button class="hint" onclick="sendQuick('2')">🍺 Bebidas</button>
+    <button class="hint" onclick="sendQuick('Quero uma ostra')">🦪 Ostras</button>
+    <button class="hint" onclick="sendQuick('Qual cerveja combina com frutos do mar?')">🍻 Harmonização</button>
+    <button class="hint" onclick="sendQuick('Estou com fome, o que indica?')">🐙 Panuozzo</button>
+    <button class="hint" onclick="sendQuick('Aceitam cartão?')">💳 Pagamento</button>
+  </div>
+
+  <div class="input-area">
+    <div class="input-wrap">
+      <input id="input" placeholder="Pergunte algo…" autocomplete="off" />
+    </div>
+    <button id="send-btn" onclick="send()" title="Enviar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"/>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+
+</div>
+
+<script>
+let history = [];
+const chat = document.getElementById("chat");
+const input = document.getElementById("input");
+
+function renderText(text) {
+  return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+}
+
+function addMessage(text, role) {
+  const row = document.createElement("div");
+  row.className = "message-row " + (role === "user" ? "user" : "");
+
+  const avatar = document.createElement("div");
+  if (role === "user") {
+    avatar.className = "avatar user-av";
+    avatar.textContent = "👤";
+  } else {
+    avatar.className = "avatar bot";
+    avatar.textContent = "M";
+  }
+
+  const msg = document.createElement("div");
+  msg.className = "message " + (role === "user" ? "user" : "assistant");
+  msg.innerHTML = renderText(text);
+
+  row.appendChild(avatar);
+  row.appendChild(msg);
+  chat.appendChild(row);
+  chat.scrollTop = chat.scrollHeight;
+  return row;
+}
+
+function addTyping() {
+  const row = document.createElement("div");
+  row.className = "typing-row";
+  row.id = "typing";
+
+  const avatar = document.createElement("div");
+  avatar.className = "avatar bot";
+  avatar.textContent = "M";
+
+  const bubble = document.createElement("div");
+  bubble.className = "typing-bubble";
+  bubble.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
+
+  row.appendChild(avatar);
+  row.appendChild(bubble);
+  chat.appendChild(row);
+  chat.scrollTop = chat.scrollHeight;
+  return row;
+}
+
+function removeTyping(el) {
+  if (el && el.parentNode) el.parentNode.removeChild(el);
+}
+
+window.onload = function () {
+  const welcome = `Benvenuti ao **LaBarca** 🦪
+
+Um boteco italiano à beira do sabor — ostras frescas, frutos do mar, panuozzos artesanais e cervejas que combinam com cada mordida.
+
+Pode pedir pra compartilhar! A ideia aqui é **2 pratinhos por pessoa** pra sair satisfeito.
+
+Me conta o que tá com vontade, ou digita *1* pra ver os **mais pedidos** da casa 😊`;
+  addMessage(welcome, "assistant");
+  history.push({ role: "assistant", content: welcome });
+};
+
+async function send() {
+  const message = input.value.trim();
+  if (!message) return;
+  sendMessage(message);
+}
+
+async function sendQuick(text) {
+  sendMessage(text);
+}
+
+async function sendMessage(message) {
+  addMessage(message, "user");
+  history.push({ role: "user", content: message });
+  input.value = "";
+
+  const typingEl = addTyping();
+
+  try {
+    const response = await fetch("/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message, history })
+    });
+
+    const data = await response.json();
+    removeTyping(typingEl);
+    addMessage(data.reply, "assistant");
+    history.push({ role: "assistant", content: data.reply });
+
+  } catch (error) {
+    removeTyping(typingEl);
+    addMessage("Erro ao conectar com o servidor. Tenta de novo 🙏", "assistant");
+  }
+}
+
+input.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") send();
+});
+</script>
+</body>
+</html>
